@@ -13,7 +13,8 @@
     "test:e2e": "playwright test",
     "db:generate": "tsx lib/db/cli.ts generate",
     "db:migrate": "tsx lib/db/cli.ts migrate",
-    "db:revert": "tsx lib/db/cli.ts revert"
+    "db:revert": "tsx lib/db/cli.ts revert",
+    "db:seed": "tsx scripts/seed.ts"
   },
   "dependencies": {
     "@auth/typeorm-adapter": "^2.11.1",
