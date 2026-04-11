@@ -1,2 +1,3 @@
-// Re-exports entities for DataSource; populated as entities are added.
-export {};
+export { User } from "./user.entity";
+export { Account } from "./account.entity";
+export { Session } from "./session.entity";
