@@ -6,6 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { TagPill } from "@/components/tag-pill";
 import { MarkdownView } from "@/components/markdown-view";
 import { renderMarkdown } from "@/lib/markdown";
+import { auth } from "@/lib/auth/server";
+import { FavoriteRepository } from "@/lib/db/repositories/favorite.repository";
+import { FavoriteButton } from "@/components/favorite-button";
 
 export default async function SkillPage({
   params,
@@ -15,6 +18,14 @@ export default async function SkillPage({
   const { slug } = await params;
   const skill = await new SkillRepository().findBySlug(slug);
   if (!skill) notFound();
+  const session = await auth();
+  let isFavorited = false;
+  if (session?.user) {
+    isFavorited = await new FavoriteRepository().isFavorited(
+      (session.user as { id: string }).id,
+      skill.id,
+    );
+  }
   const html = await renderMarkdown(skill.description);
 
   return (
@@ -32,6 +43,13 @@ export default async function SkillPage({
           <Badge>{skill.category}</Badge>
         </div>
         <CommandBlock command={`npx bentoskills install ${skill.slug}`} slug={skill.slug} />
+        {session?.user && (
+          <FavoriteButton
+            slug={skill.slug}
+            initialFavorited={isFavorited}
+            initialCount={skill.favoriteCount}
+          />
+        )}
         <details className="text-sm">
           <summary className="cursor-pointer text-[--muted-foreground]">Manual install</summary>
           <pre className="mt-2 overflow-auto rounded bg-[--muted] p-3 text-xs">{`git clone ${skill.repoUrl} ~/.claude/skills/${skill.slug}`}</pre>
