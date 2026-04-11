@@ -20,6 +20,8 @@
         "name": "next"
       }
     ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
       "@/*": ["./*"]
     }
