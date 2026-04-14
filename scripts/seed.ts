@@ -1,5 +1,6 @@
-import "dotenv/config";
 import "reflect-metadata";
+import { config } from "dotenv";
+config({ path: ".env.local" });
 import { ensureInitialized } from "@/lib/db/data-source";
 import { Skill } from "@/lib/db/entities";
 
