@@ -1,12 +1,10 @@
 import "reflect-metadata";
 import { config } from "dotenv";
-import { getDataSource } from "./data-source";
-
 config({ path: ".env.local" });
+import ds from "./cli-datasource";
 
 async function main() {
   const cmd = process.argv[2];
-  const ds = getDataSource();
   await ds.initialize();
 
   switch (cmd) {

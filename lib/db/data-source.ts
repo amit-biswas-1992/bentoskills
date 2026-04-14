@@ -1,26 +1,39 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import path from "node:path";
+import { User, Account, Session, Skill, Favorite, InstallLog } from "./entities";
 
-const globalForDb = globalThis as unknown as { _dataSource?: DataSource };
+// Next.js bundles pages and route handlers separately, giving each bundle its
+// own copy of the entity classes. TypeORM's DataSource caches metadata by
+// class identity, so a DataSource built in bundle A cannot serve queries from
+// bundle B's class constructors. We cache one DataSource per unique Skill
+// class constructor, keyed on globalThis so HMR reloads reuse the cache.
+const globalForDb = globalThis as unknown as {
+  _dataSourceByClass?: Map<unknown, DataSource>;
+};
+if (!globalForDb._dataSourceByClass) {
+  globalForDb._dataSourceByClass = new Map();
+}
 
-export function getDataSource(): DataSource {
-  if (globalForDb._dataSource) return globalForDb._dataSource;
-
+function buildDataSource(): DataSource {
   const url = process.env.DATABASE_URL;
   if (!url) throw new Error("DATABASE_URL is not set");
 
-  const ds = new DataSource({
+  return new DataSource({
     type: "postgres",
     url,
     ssl: process.env.DATABASE_SSL === "true" ? { rejectUnauthorized: false } : false,
-    entities: [path.join(process.cwd(), "lib/db/entities/*.ts")],
-    migrations: [path.join(process.cwd(), "lib/db/migrations/*.ts")],
+    entities: [User, Account, Session, Skill, Favorite, InstallLog],
     synchronize: false,
     logging: process.env.NODE_ENV === "development" ? ["error", "warn"] : ["error"],
   });
+}
 
-  globalForDb._dataSource = ds;
+export function getDataSource(): DataSource {
+  const cache = globalForDb._dataSourceByClass!;
+  const existing = cache.get(Skill);
+  if (existing) return existing;
+  const ds = buildDataSource();
+  cache.set(Skill, ds);
   return ds;
 }
 

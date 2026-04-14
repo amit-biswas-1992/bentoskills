@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const config: NextConfig = {
+  serverExternalPackages: ["typeorm", "pg", "reflect-metadata"],
   async headers() {
     return [
       {
