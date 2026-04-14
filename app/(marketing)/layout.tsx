@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { StarButton } from "@/components/star-button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,8 +10,17 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
           bentoskills<span className="text-[--color-accent]">.sh</span>
         </Link>
         <nav className="flex items-center gap-4 text-sm">
-          <Link href="/skills">Browse</Link>
-          <Link href="/publish">Publish</Link>
+          <Link href="/skills" className="hover:text-[--color-accent]">
+            Browse
+          </Link>
+          <Link href="/contributors" className="hover:text-[--color-accent]">
+            Contributors
+          </Link>
+          <Link href="/publish" className="hover:text-[--color-accent]">
+            Publish
+          </Link>
+          <StarButton />
+          <ThemeToggle />
           <Link
             href="/api/auth/signin"
             className="inline-flex h-8 items-center rounded-md border border-[--border] px-3 text-sm hover:bg-[--muted]"
