@@ -57,3 +57,7 @@ test-results/
 # remotion demo project
 /demo/node_modules
 /demo/out
+
+# cli package (standalone install)
+/cli/node_modules
+/cli/dist

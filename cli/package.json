@@ -1,0 +1,44 @@
+{
+  "name": "bentoskills",
+  "version": "0.1.0",
+  "description": "Install UI/UX agent skills for Claude Code from bentoskills.sh",
+  "keywords": [
+    "claude",
+    "claude-code",
+    "agent",
+    "skills",
+    "ui",
+    "ux",
+    "cli"
+  ],
+  "license": "MIT",
+  "author": "amit-biswas-1992",
+  "homepage": "https://bentoskills.sh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amit-biswas-1992/bentoskills.git",
+    "directory": "cli"
+  },
+  "type": "module",
+  "bin": {
+    "bentoskills": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "start": "node ./dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  }
+}
