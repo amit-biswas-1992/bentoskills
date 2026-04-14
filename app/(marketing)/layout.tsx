@@ -22,8 +22,8 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
       <footer className="mt-24 border-t border-[--border] pt-8 text-sm text-[--muted-foreground]">
         <p>
           Open a PR at{" "}
-          <a className="underline" href="https://github.com/bentoskills/registry">
-            bentoskills/registry
+          <a className="underline" href="https://github.com/amit-biswas-1992/bentoskills-registry">
+            amit-biswas-1992/bentoskills-registry
           </a>{" "}
           to publish a skill.
         </p>

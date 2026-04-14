@@ -6,8 +6,8 @@ export default function PublishPage() {
       <ol>
         <li>
           Fork{" "}
-          <a href="https://github.com/bentoskills/registry">
-            <code>bentoskills/registry</code>
+          <a href="https://github.com/amit-biswas-1992/bentoskills-registry">
+            <code>amit-biswas-1992/bentoskills-registry</code>
           </a>
           .
         </li>

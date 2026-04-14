@@ -12,7 +12,7 @@ const skills: Partial<Skill>[] = [
     version: "1.0.0",
     author: "alice",
     repoUrl:
-      "https://github.com/bentoskills/registry/tree/main/skills/design-critique",
+      "https://github.com/amit-biswas-1992/bentoskills-registry/tree/main/skills/design-critique",
     homepageUrl: null,
     licenseSpdx: "MIT",
     category: "critique",
@@ -32,7 +32,7 @@ const skills: Partial<Skill>[] = [
     version: "1.0.0",
     author: "bob",
     repoUrl:
-      "https://github.com/bentoskills/registry/tree/main/skills/accessibility-review",
+      "https://github.com/amit-biswas-1992/bentoskills-registry/tree/main/skills/accessibility-review",
     homepageUrl: null,
     licenseSpdx: "MIT",
     category: "accessibility",
@@ -52,7 +52,7 @@ const skills: Partial<Skill>[] = [
     version: "1.0.0",
     author: "carol",
     repoUrl:
-      "https://github.com/bentoskills/registry/tree/main/skills/ux-copy",
+      "https://github.com/amit-biswas-1992/bentoskills-registry/tree/main/skills/ux-copy",
     homepageUrl: null,
     licenseSpdx: "MIT",
     category: "copy",
@@ -72,7 +72,7 @@ const skills: Partial<Skill>[] = [
     version: "1.0.0",
     author: "dave",
     repoUrl:
-      "https://github.com/bentoskills/registry/tree/main/skills/design-handoff",
+      "https://github.com/amit-biswas-1992/bentoskills-registry/tree/main/skills/design-handoff",
     homepageUrl: null,
     licenseSpdx: "MIT",
     category: "handoff",
@@ -92,7 +92,7 @@ const skills: Partial<Skill>[] = [
     version: "1.0.0",
     author: "eve",
     repoUrl:
-      "https://github.com/bentoskills/registry/tree/main/skills/user-research",
+      "https://github.com/amit-biswas-1992/bentoskills-registry/tree/main/skills/user-research",
     homepageUrl: null,
     licenseSpdx: "MIT",
     category: "research",
@@ -112,7 +112,7 @@ const skills: Partial<Skill>[] = [
     version: "1.0.0",
     author: "frank",
     repoUrl:
-      "https://github.com/bentoskills/registry/tree/main/skills/design-system",
+      "https://github.com/amit-biswas-1992/bentoskills-registry/tree/main/skills/design-system",
     homepageUrl: null,
     licenseSpdx: "MIT",
     category: "system",
