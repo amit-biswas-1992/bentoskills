@@ -2,6 +2,10 @@
 
 > A marketplace for UI/UX Claude Code agent skills — browse, install, and share curated design skills.
 
+![bentoskills demo](docs/demo.gif)
+
+[Watch MP4](docs/demo.mp4)
+
 [![CI](https://github.com/amit-biswas-1992/bentoskills/actions/workflows/ci.yml/badge.svg)](https://github.com/amit-biswas-1992/bentoskills/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-7C5CFF.svg)](LICENSE)
 
