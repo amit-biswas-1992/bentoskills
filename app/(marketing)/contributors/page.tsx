@@ -63,8 +63,9 @@ export default async function ContributorsPage() {
   const results = await Promise.all(REPOS.map(fetchContributors));
 
   const byLogin = new Map<string, Merged>();
-  results.forEach((list, i) => {
-    const repo = REPOS[i];
+  for (const [i, list] of results.entries()) {
+    // REPOS is a fixed-length const tuple, so i is always in range.
+    const repo = REPOS[i] as string;
     for (const c of list) {
       const existing = byLogin.get(c.login);
       if (existing) {
@@ -80,7 +81,7 @@ export default async function ContributorsPage() {
         });
       }
     }
-  });
+  }
 
   const ranked = [...byLogin.values()].sort((a, b) => b.total - a.total);
 
@@ -149,7 +150,7 @@ export default async function ContributorsPage() {
                     </div>
                     <div className="mt-0.5 text-sm text-[--muted-foreground]">
                       {c.total} {c.total === 1 ? "commit" : "commits"} ·{" "}
-                      {c.repos.length === 2 ? "both repos" : c.repos[0].split("/")[1]}
+                      {c.repos.length === 2 ? "both repos" : (c.repos[0]?.split("/")[1] ?? "")}
                     </div>
                   </div>
                 </a>

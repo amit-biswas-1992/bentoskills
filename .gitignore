@@ -61,3 +61,6 @@ test-results/
 # cli package (standalone install)
 /cli/node_modules
 /cli/dist
+
+# local tooling config (machine-specific absolute paths)
+/.claude
