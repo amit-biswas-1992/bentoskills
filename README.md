@@ -7,7 +7,7 @@
 [![CI](https://github.com/amit-biswas-1992/bentoskills/actions/workflows/ci.yml/badge.svg)](https://github.com/amit-biswas-1992/bentoskills/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-7C5CFF.svg)](LICENSE)
 [![npm: bentoskills](https://img.shields.io/badge/npm-bentoskills-cb3837?logo=npm)](./cli)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/amitbiswas)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/biswasamit)
 
 ## Install a skill in one line
 
