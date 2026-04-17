@@ -4,6 +4,7 @@ import { BentoGrid, BentoTile } from "@/components/bento-grid";
 import { CommandBlock } from "@/components/command-block";
 import { SkillCard } from "@/components/skill-card";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 300;
 
 export default async function HomePage() {

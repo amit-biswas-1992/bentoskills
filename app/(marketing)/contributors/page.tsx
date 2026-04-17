@@ -29,6 +29,7 @@ type Merged = {
   repos: string[];
 };
 
+export const dynamic = "force-dynamic";
 export const revalidate = 21600; // 6 hours
 export const metadata = {
   title: "Contributors — bentoskills.sh",
