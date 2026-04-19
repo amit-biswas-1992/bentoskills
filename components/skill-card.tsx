@@ -15,39 +15,39 @@ import type { Skill } from "@/lib/db/entities";
 const CATEGORY_THEME: Record<string, { stripe: string; tint: string; border: string; badge: string }> = {
   accessibility: {
     stripe: "from-teal-400 via-cyan-400 to-sky-400",
-    tint: "from-teal-400 via-cyan-500 to-sky-500",
-    border: "hover:border-teal-300 focus-within:border-teal-300",
-    badge: "border-white/30 bg-white/20 text-white backdrop-blur",
+    tint: "",
+    border: "hover:border-teal-400 focus-within:border-teal-400",
+    badge: "border-teal-400/40 bg-teal-500/15 text-teal-700 dark:text-teal-300",
   },
   critique: {
     stripe: "from-rose-400 via-pink-400 to-fuchsia-400",
-    tint: "from-rose-500 via-pink-500 to-fuchsia-500",
-    border: "hover:border-rose-300 focus-within:border-rose-300",
-    badge: "border-white/30 bg-white/20 text-white backdrop-blur",
+    tint: "",
+    border: "hover:border-rose-400 focus-within:border-rose-400",
+    badge: "border-rose-400/40 bg-rose-500/15 text-rose-700 dark:text-rose-300",
   },
   copy: {
     stripe: "from-amber-400 via-orange-400 to-yellow-400",
-    tint: "from-amber-500 via-orange-500 to-yellow-500",
-    border: "hover:border-amber-200 focus-within:border-amber-200",
-    badge: "border-white/30 bg-white/20 text-white backdrop-blur",
+    tint: "",
+    border: "hover:border-amber-400 focus-within:border-amber-400",
+    badge: "border-amber-400/40 bg-amber-500/15 text-amber-700 dark:text-amber-300",
   },
   handoff: {
     stripe: "from-violet-400 via-purple-400 to-indigo-400",
-    tint: "from-violet-500 via-purple-500 to-indigo-500",
-    border: "hover:border-violet-300 focus-within:border-violet-300",
-    badge: "border-white/30 bg-white/20 text-white backdrop-blur",
+    tint: "",
+    border: "hover:border-violet-400 focus-within:border-violet-400",
+    badge: "border-violet-400/40 bg-violet-500/15 text-violet-700 dark:text-violet-300",
   },
   research: {
     stripe: "from-emerald-400 via-green-400 to-lime-400",
-    tint: "from-emerald-500 via-green-500 to-lime-500",
-    border: "hover:border-emerald-300 focus-within:border-emerald-300",
-    badge: "border-white/30 bg-white/20 text-white backdrop-blur",
+    tint: "",
+    border: "hover:border-emerald-400 focus-within:border-emerald-400",
+    badge: "border-emerald-400/40 bg-emerald-500/15 text-emerald-700 dark:text-emerald-300",
   },
   system: {
     stripe: "from-indigo-400 via-blue-400 to-cyan-400",
-    tint: "from-indigo-500 via-blue-500 to-cyan-500",
-    border: "hover:border-indigo-300 focus-within:border-indigo-300",
-    badge: "border-white/30 bg-white/20 text-white backdrop-blur",
+    tint: "",
+    border: "hover:border-indigo-400 focus-within:border-indigo-400",
+    badge: "border-indigo-400/40 bg-indigo-500/15 text-indigo-700 dark:text-indigo-300",
   },
 };
 
@@ -79,12 +79,12 @@ export function SkillCard({
 
   return (
     <article
-      className={`group relative overflow-hidden rounded-2xl border border-white/20 p-5 text-white shadow-lg transition bg-gradient-to-br ${theme.tint} ${theme.border} hover:shadow-xl hover:scale-[1.01]`}
+      className={`group relative overflow-hidden rounded-2xl border border-[--border] bg-white/70 p-5 shadow-sm backdrop-blur-sm transition dark:bg-slate-950/60 ${theme.border}`}
     >
-      {/* Soft white highlight in the top corner for depth */}
-      <div className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full bg-white/20 blur-2xl" />
+      {/* Colored top stripe — category at a glance */}
+      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${theme.stripe}`} />
 
-      <div className="relative flex items-start justify-between gap-3">
+      <div className="flex items-start justify-between gap-3">
         <h3 className={variant === "feature" ? "text-2xl font-semibold" : "text-base font-semibold"}>
           <Link
             href={`/skills/${skill.slug}`}
@@ -95,13 +95,13 @@ export function SkillCard({
         </h3>
         <Badge className={theme.badge}>{skill.category}</Badge>
       </div>
-      <p className="relative mt-2 line-clamp-2 text-sm text-white/85">{skill.tagline}</p>
+      <p className="mt-2 line-clamp-2 text-sm text-[--muted-foreground]">{skill.tagline}</p>
       <div className="relative mt-4 flex flex-wrap gap-1.5">
         {skill.tags.slice(0, 4).map((t) => (
-          <TagPill key={t} tag={t} className="border-white/30 bg-white/15 text-white" />
+          <TagPill key={t} tag={t} />
         ))}
       </div>
-      <div className="relative mt-4 flex items-center gap-4 text-xs text-white/80">
+      <div className="mt-4 flex items-center gap-4 text-xs text-[--muted-foreground]">
         <span>{skill.installCount} installs</span>
         <span>{skill.favoriteCount} favorites</span>
       </div>
